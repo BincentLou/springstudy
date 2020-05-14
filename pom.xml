@@ -8,14 +8,15 @@
         <project.version>1.0-SNAPSHOT</project.version>
         <spring.version>5.1.9.RELEASE</spring.version>
     </properties>
-    <groupId>study-in-spring</groupId>
-    <artifactId>com.david.study</artifactId>
+    <groupId>com.david.study</groupId>
+    <artifactId>study-in-spring</artifactId>
     <packaging>pom</packaging>
     <version>${project.version}</version>
     <modules>
         <module>spring-dependency-study</module>
         <module>spring-beans-study</module>
         <module>spring-lookup-study</module>
+        <module>spring-dependency-injection-study</module>
     </modules>
 
 
