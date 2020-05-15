@@ -1,5 +1,13 @@
 package com.david.study.spring.dependency.injection;
 
+import com.david.study.spring.dependency.UserHolder;
+import org.springframework.beans.factory.support.BeanDefinitionReader;
+import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+
 /**
  * @version $Id: null.java, v 1.0 2020/5/14 11:20 PM david Exp $$
  * @Author:louwenbin(louwb@runyong.cn)
@@ -7,4 +15,24 @@ package com.david.study.spring.dependency.injection;
  * @since 1.0
  **/
 public class AnnotationDependencyInjectionDemo {
+
+    public static void main(String[] args) {
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
+
+        BeanDefinitionReader beanDefinitionReader =new  XmlBeanDefinitionReader(annotationConfigApplicationContext);
+        beanDefinitionReader.loadBeanDefinitions("classpath:/META-INF/dependency-injection.xml");
+        annotationConfigApplicationContext.register(AnnotationDependencyInjectionDemo.class);
+
+        annotationConfigApplicationContext.refresh();
+        UserHolder userHolder = annotationConfigApplicationContext.getBean(UserHolder.class);
+        System.out.println(userHolder);
+
+        annotationConfigApplicationContext.close();
+    }
+
+
+    @Bean
+    public UserHolder userHolder(){
+        return new UserHolder();
+    }
 }

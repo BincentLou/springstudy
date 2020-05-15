@@ -1,6 +1,8 @@
 package com.david.study.spring.dependency.injection;
 
+import com.david.study.spring.dependency.UserHolder;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -12,6 +14,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class XmlDependencyInjectionDemo {
 
     public static void main(String[] args) {
-        BeanFactory beanFactory = new ClassPathXmlApplicationContext();
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("classpath:/META-INF/dependency-injection.xml");
+        UserHolder userHolder = beanFactory.getBean(UserHolder.class);
+        System.out.println(userHolder);
     }
+
 }
