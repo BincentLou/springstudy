@@ -15,6 +15,7 @@
         <dependency>
             <groupId>com.david.study</groupId>
             <artifactId>spring-dependency-study</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
