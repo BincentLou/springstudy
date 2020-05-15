@@ -17,5 +17,7 @@
         <!--</property>-->
     </bean>
 
-    <!--<bean id="userHolder" class="com.david.study.spring.dependency.UserHolder" autowire="byType"></bean>-->
+    <!--<bean id="userHolder" class="com.david.study.spring.dependency.UserHolder">-->
+        <!--<constructor-arg name="user" ref="user"></constructor-arg>-->
+    <!--</bean>-->
 </beans>

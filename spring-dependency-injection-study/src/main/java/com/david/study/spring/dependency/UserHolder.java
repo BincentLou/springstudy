@@ -26,6 +26,13 @@ public class UserHolder {
         return this;
     }
 
+    public UserHolder(User user) {
+        this.user = user;
+    }
+
+//    public UserHolder() {
+//    }
+
     @Override
     public String toString() {
         return "UserHolder{" +

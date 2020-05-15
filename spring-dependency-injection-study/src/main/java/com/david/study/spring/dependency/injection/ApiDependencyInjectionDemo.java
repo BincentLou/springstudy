@@ -1,6 +1,7 @@
 package com.david.study.spring.dependency.injection;
 
 import com.david.study.spring.dependency.UserHolder;
+import com.david.study.spring.domain.User;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
@@ -29,7 +30,8 @@ public class ApiDependencyInjectionDemo {
         beanDefinitionReader.loadBeanDefinitions(resourceLocation);
 
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(UserHolder.class);
-        beanDefinitionBuilder.addPropertyReference("user","superUser");
+//        beanDefinitionBuilder.addPropertyReference("user","superUser");
+        beanDefinitionBuilder.addConstructorArgReference("superUser");
         applicationContext.registerBeanDefinition("userHolder",beanDefinitionBuilder.getBeanDefinition());
 
         applicationContext.refresh();
@@ -40,7 +42,7 @@ public class ApiDependencyInjectionDemo {
     }
 
     @Bean
-    public UserHolder userHolder(){
-        return new UserHolder();
+    public UserHolder userHolder(User user){
+        return new UserHolder(user);
     }
 }

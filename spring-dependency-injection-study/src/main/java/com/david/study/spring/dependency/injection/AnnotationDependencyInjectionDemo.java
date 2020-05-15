@@ -7,6 +7,7 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import com.david.study.spring.domain.*;
 
 /**
  * @version $Id: null.java, v 1.0 2020/5/14 11:20 PM david Exp $$
@@ -34,7 +35,7 @@ public class AnnotationDependencyInjectionDemo {
 
 
     @Bean
-    public UserHolder userHolder(){
-        return new UserHolder();
+    public UserHolder userHolder(User user){
+        return new UserHolder(user);
     }
 }
