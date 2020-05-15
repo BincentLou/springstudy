@@ -1,6 +1,7 @@
 package com.david.study.spring.dependency;
 import com.david.study.spring.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.annotation.Resource;
 
@@ -12,7 +13,8 @@ import javax.annotation.Resource;
  **/
 public class UserHolder {
 
-    @Resource
+//    @Resource // 注入的是User
+//    @Autowired //注入的是SuperUser
     private User user;
 
     public User getUser() {

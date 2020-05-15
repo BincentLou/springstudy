@@ -21,9 +21,11 @@ public class AnnotationDependencyInjectionDemo {
 
         BeanDefinitionReader beanDefinitionReader =new  XmlBeanDefinitionReader(annotationConfigApplicationContext);
         beanDefinitionReader.loadBeanDefinitions("classpath:/META-INF/dependency-injection.xml");
+
         annotationConfigApplicationContext.register(AnnotationDependencyInjectionDemo.class);
 
         annotationConfigApplicationContext.refresh();
+
         UserHolder userHolder = annotationConfigApplicationContext.getBean(UserHolder.class);
         System.out.println(userHolder);
 
