@@ -19,6 +19,20 @@
 
     <bean id="userHolder" class="com.david.study.spring.dependency.UserHolder">
         <property name="configFile" value="classpath:/META-INF/dependency-annotation-injection.xml"/>
+        <property name="workCities" value="HANGZHOU,SHENZHEN"/>
+        <property name="lifeCities">
+            <list>
+                <value>HANGZHOU</value>
+                <value>SHANGHAI</value>
+            </list>
+        </property>
+        <property name="bornCities">
+            <map>
+                <description>1</description>
+                <entry key="1" value="SHANGHAI"/>
+                <entry key="2" value="GUANGZHOU"/>
+            </map>
+        </property>
         <!--<constructor-arg name="user" ref="user"></constructor-arg>-->
         <!--<constructor-arg name="cityEnum" value="HANGZHOU"></constructor-arg>-->
     </bean>

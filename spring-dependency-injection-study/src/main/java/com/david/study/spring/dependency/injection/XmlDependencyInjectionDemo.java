@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * @version $Id: null.java, v 1.0 2020/5/14 11:20 PM david Exp $$
  * @Author:louwenbin(louwb@runyong.cn)
- * @Description:${TODO}(这里用一句话描述这个类的作用)
+ * @Description:xml 文件配置context 可以注入 enum  可以注入resource,可以注入List array map
  * @since 1.0
  **/
 public class XmlDependencyInjectionDemo {

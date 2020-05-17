@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.Resource;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 /**
  * @version $Id: null.java, v 1.0 2020/5/15 9:23 AM david Exp $$
  * @Author:louwenbin(louwb@runyong.cn)
@@ -18,6 +22,39 @@ public class UserHolder {
     private User user;
 
     private CityEnum cityEnum;
+
+    private CityEnum[] workCities;
+
+    private List<CityEnum> lifeCities;
+
+    private Map<Integer,CityEnum> bornCities;
+
+    public Map<Integer, CityEnum> getBornCities() {
+        return bornCities;
+    }
+
+    public UserHolder setBornCities(Map<Integer, CityEnum> bornCities) {
+        this.bornCities = bornCities;
+        return this;
+    }
+
+    public CityEnum[] getWorkCities() {
+        return workCities;
+    }
+
+    public List<CityEnum> getLifeCities() {
+        return lifeCities;
+    }
+
+    public UserHolder setLifeCities(List<CityEnum> lifeCities) {
+        this.lifeCities = lifeCities;
+        return this;
+    }
+
+    public UserHolder setWorkCities(CityEnum[] workCities) {
+        this.workCities = workCities;
+        return this;
+    }
 
     private Resource configFile;
 
@@ -64,7 +101,7 @@ public class UserHolder {
     @Override
     public String toString() {
         return "UserHolder{" +
-                "configFile=" + configFile +
+                "bornCities=" + bornCities +
                 '}';
     }
 }
