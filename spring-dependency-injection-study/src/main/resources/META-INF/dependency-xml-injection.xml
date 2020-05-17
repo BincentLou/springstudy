@@ -17,7 +17,9 @@
         <!--</property>-->
     </bean>
 
-    <!--<bean id="userHolder" class="com.david.study.spring.dependency.UserHolder">-->
+    <bean id="userHolder" class="com.david.study.spring.dependency.UserHolder">
+        <property name="configFile" value="classpath:/META-INF/dependency-annotation-injection.xml"/>
         <!--<constructor-arg name="user" ref="user"></constructor-arg>-->
-    <!--</bean>-->
+        <!--<constructor-arg name="cityEnum" value="HANGZHOU"></constructor-arg>-->
+    </bean>
 </beans>

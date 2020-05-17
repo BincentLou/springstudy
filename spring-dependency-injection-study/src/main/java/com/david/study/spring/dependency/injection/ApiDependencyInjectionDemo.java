@@ -1,6 +1,7 @@
 package com.david.study.spring.dependency.injection;
 
 import com.david.study.spring.dependency.UserHolder;
+import com.david.study.spring.dependency.date.CityEnum;
 import com.david.study.spring.domain.User;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -26,7 +27,7 @@ public class ApiDependencyInjectionDemo {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(ApiDependencyInjectionDemo.class);
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(applicationContext);
-        String resourceLocation = "classpath:/META-INF/dependency-injection.xml";
+        String resourceLocation = "classpath:/META-INF/dependency-xml-injection.xml";
         beanDefinitionReader.loadBeanDefinitions(resourceLocation);
 
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(UserHolder.class);
@@ -42,7 +43,7 @@ public class ApiDependencyInjectionDemo {
     }
 
     @Bean
-    public UserHolder userHolder(User user){
-        return new UserHolder(user);
+    public UserHolder userHolder(User user, CityEnum cityEnum){
+        return new UserHolder(user,cityEnum);
     }
 }
