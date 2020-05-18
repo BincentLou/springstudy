@@ -12,7 +12,7 @@ import javax.annotation.PreDestroy;
  * @Description: pojo
  * @since 1.0
  **/
-public class User implements InitializingBean, DisposableBean {
+public class User  {
 
     private String name;
 
@@ -50,26 +50,9 @@ public class User implements InitializingBean, DisposableBean {
         user.setName("staticMethodIntantiaton");
         return user;
     }
-    @PostConstruct
-    public void init(){
-        System.out.println("@postConstrcutMethod");
-    }
-
-    @PreDestroy
-    public void preDestory(){
-        System.out.println("@preDestory 销毁bean");
-    }
 
     public void initialUserMethod(){
         System.out.println("@Bean initMethod ");
-    }
-
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("Spring initializingBean#afterPropertiesSet 方法");
-    }
-
-    public void destroy() throws Exception {
-        System.out.println("Spring DisposableBean#destory()方法执行");
     }
 
     public void doDestroy(){
