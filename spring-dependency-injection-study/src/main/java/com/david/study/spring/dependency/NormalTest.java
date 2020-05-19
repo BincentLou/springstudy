@@ -1,5 +1,11 @@
 package com.david.study.spring.dependency;
 
+import org.springframework.util.ReflectionUtils;
+import sun.misc.Unsafe;
+import sun.reflect.Reflection;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -9,29 +15,24 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @since 1.0
  **/
 public class NormalTest {
+    private static Unsafe unsafe;
     public static void main(String[] args) {
-
-        AtomicInteger atomicInteger = new AtomicInteger();
-        atomicInteger.set(100);
-        for (int i=0;i<10;i++) {
-            createThreadAndUpdateAtomicInteger(atomicInteger);
-        }
         try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-
+            Field field = ReflectionUtils.findField(Unsafe.class,"theUnsafe");
+            field.setAccessible(true);
+            unsafe = (Unsafe) field.get(null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
-        System.out.println(atomicInteger.get());
+        System.out.println(unsafe.addressSize());
+
     }
 
     private static void createThreadAndUpdateAtomicInteger(AtomicInteger atomicInteger) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (!atomicInteger.compareAndSet(atomicInteger.get()+1,atomicInteger.get())){
-
-                }
-                return;
+                atomicInteger.getAndIncrement();
             }
         });
         thread.start();

@@ -3,6 +3,7 @@ package com.david.study.spring.dependency.injection;
 import com.david.study.spring.dependency.configuration.UserConfigurationDemo;
 import com.david.study.spring.domain.User;
 import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
@@ -22,6 +23,12 @@ public class AnnotationDependencyInjectionResolutionDemo {
 
     @Autowired
     private User user;
+
+    @Autowired
+    private ObjectProvider<User> userObjectProvider;
+
+    @javax.inject.Inject
+    private User injetcUser;
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
