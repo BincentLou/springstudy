@@ -6,6 +6,8 @@ import sun.reflect.Reflection;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -15,26 +17,52 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @since 1.0
  **/
 public class NormalTest {
-    private static Unsafe unsafe;
     public static void main(String[] args) {
-        try {
-            Field field = ReflectionUtils.findField(Unsafe.class,"theUnsafe");
-            field.setAccessible(true);
-            unsafe = (Unsafe) field.get(null);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        System.out.println(unsafe.addressSize());
-
-    }
-
-    private static void createThreadAndUpdateAtomicInteger(AtomicInteger atomicInteger) {
-        Thread thread = new Thread(new Runnable() {
+        Thread a = new Thread(new Runnable() {
             @Override
             public void run() {
-                atomicInteger.getAndIncrement();
+                testHashMap();
             }
         });
-        thread.start();
+        Thread b = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                testHashtable();
+            }
+        });
+
+        b.start();
+        a.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+        }
     }
+
+    private static void testHashtable() {
+        long a = System.currentTimeMillis();
+        Hashtable<Integer,Integer> hashtable = new Hashtable<>();
+        for(int i=0;i<1000000;i++){
+            hashtable.put(i,i);
+        }
+        for(int i=1000000;i>500000;i--){
+            hashtable.get(i);
+        }
+        System.out.println("----------Hastable-----------");
+        System.out.println(System.currentTimeMillis()-a);
+    }
+
+    private static void testHashMap() {
+        long a = System.currentTimeMillis();
+        HashMap<Integer,Integer> hashMap = new HashMap<>();
+        for(int i=0;i<1000000;i++){
+            hashMap.put(i,i);
+        }
+        for(int i=1000000;i>500000;i--){
+            hashMap.get(i);
+        }
+        System.out.println("-----------HashMap----------");
+        System.out.println(System.currentTimeMillis()-a);
+    }
+
 }

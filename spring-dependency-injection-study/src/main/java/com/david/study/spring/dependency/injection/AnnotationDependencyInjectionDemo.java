@@ -1,6 +1,7 @@
 package com.david.study.spring.dependency.injection;
 
 import com.david.study.spring.dependency.UserHolder;
+import com.david.study.spring.dependency.annotation.MyAutowiredExt;
 import com.david.study.spring.dependency.configuration.UserConfigurationDemo;
 import com.david.study.spring.dependency.date.CityEnum;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,7 @@ public class AnnotationDependencyInjectionDemo {
         System.out.println(annotationDependecyInjecttionDemo.user2);
         System.out.println(annotationDependecyInjecttionDemo.user1);
         System.out.println(annotationDependecyInjecttionDemo.user3);
+        System.out.println(annotationDependecyInjecttionDemo.myAutowiredExt);
 
         annotationConfigApplicationContext.close();
     }
@@ -70,6 +72,10 @@ public class AnnotationDependencyInjectionDemo {
 
     @Resource  //Resource 不能注释static 按照名称查找
     private  User user3;
+
+    @MyAutowiredExt
+    @Qualifier("user2")
+    private User myAutowiredExt;
 
 }
 
