@@ -10,6 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
+import java.lang.annotation.Annotation;
+import java.util.Arrays;
+import java.util.HashSet;
+
 /**
  * @version $Id: null.java, v 1.0 2020/5/22 1:27 PM david Exp $$
  * @Author:louwenbin(louwb@runyong.cn)
@@ -56,6 +60,8 @@ public class AddAnnotationBeanPostProcessorDemo {
     public static AutowiredAnnotationBeanPostProcessor autowiredAnnotationBeanPostProcessor(){
         AutowiredAnnotationBeanPostProcessor autowiredAnnotationBeanPostProcessor = new AutowiredAnnotationBeanPostProcessor();
         autowiredAnnotationBeanPostProcessor.setAutowiredAnnotationType(MyNewAnnotation.class);
+//        HashSet<Class<? extends Annotation>> types = new HashSet<>(Arrays.asList(Autowired.class,MyNewAnnotation.class));
+//        autowiredAnnotationBeanPostProcessor.setAutowiredAnnotationTypes(types);
         return autowiredAnnotationBeanPostProcessor;
     }
 }
