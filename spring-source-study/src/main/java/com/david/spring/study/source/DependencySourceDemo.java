@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 /**
  * @version $Id: null.java, v 1.0 2020/5/25 2:52 PM david Exp $$
  * @Author:louwenbin(louwb@runyong.cn)
- * @Description:${TODO}(这里用一句话描述这个类的作用)
+ * @Description:依赖注入来源：1.beandefinition 2.singletonObjects 3.resovlableDependency 4.外部配置 @value 之类注入的properties
  * @since 1.0
  **/
 public class DependencySourceDemo {
