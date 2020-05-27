@@ -11,6 +11,14 @@ import java.util.LinkedHashSet;
 public class HashMapTest {
 
     public static void main(String[] args) {
+//        testSynchronized();
+    }
 
+    public void testSynchronized() {
+        Integer a = 20;
+        synchronized (a){
+            int c = 30;
+            System.out.println("heihei");
+        }
     }
 }
