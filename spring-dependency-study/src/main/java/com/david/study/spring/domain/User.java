@@ -1,5 +1,6 @@
 package com.david.study.spring.domain;
 
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -12,17 +13,31 @@ import javax.annotation.PreDestroy;
  * @Description: pojo
  * @since 1.0
  **/
-public class User  {
+public class User  implements BeanNameAware {
 
     private String name;
 
     private Integer age;
+
+    private Long id;
+
+    private transient String beanName;
+
+    public Long getId() {
+        return id;
+    }
+
+    public User setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", id=" + id +
                 '}';
     }
 
@@ -62,5 +77,20 @@ public class User  {
     @Override
     protected void finalize() throws Throwable {
         System.out.println("jvm 开始回收 User 对象");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        this.beanName = name;
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println(beanName + "初始化");
+    }
+
+    @PreDestroy
+    public void destory(){
+        System.out.println(beanName + "销毁");
     }
 }

@@ -18,6 +18,7 @@
         <module>spring-lookup-study</module>
         <module>spring-dependency-injection-study</module>
         <module>spring-source</module>
+        <module>bean-scope-study</module>
     </modules>
 
 
