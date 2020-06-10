@@ -1,6 +1,5 @@
 package com.david.study.spring.bean;
 import com.david.study.spring.domain.User;
-import com.sun.tools.internal.xjc.reader.dtd.bindinfo.BIUserConversion;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;

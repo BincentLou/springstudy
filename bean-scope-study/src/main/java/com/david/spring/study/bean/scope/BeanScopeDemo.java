@@ -8,7 +8,10 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.util.Map;
 
@@ -18,9 +21,12 @@ import java.util.Map;
  * @Description:bean的作用域用例
  * @since 1.0
  **/
+@Configuration
 public class BeanScopeDemo implements DisposableBean {
 
     @Bean
+    @Primary
+    @RequestScope
     public static User singletonUser(){
         return getUser();
     }
@@ -33,6 +39,7 @@ public class BeanScopeDemo implements DisposableBean {
     private static User getUser() {
         User user = new User();
         user.setId(System.nanoTime());
+        user.setName("david");
         return user;
     }
 
@@ -64,18 +71,18 @@ public class BeanScopeDemo implements DisposableBean {
     @Autowired
     private ConfigurableListableBeanFactory beanFactory;
 
-    public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.register(BeanScopeDemo.class);
-
-        applicationContext.refresh();
-
-        lookeUpBeanScopeDemo(applicationContext);
-        injectBeanScopeDemo(applicationContext);
-        applicationContext.close();
-
-
-    }
+//    public static void main(String[] args) {
+//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
+//        applicationContext.register(BeanScopeDemo.class);
+//
+//        applicationContext.refresh();
+//
+//        lookeUpBeanScopeDemo(applicationContext);
+//        injectBeanScopeDemo(applicationContext);
+////        applicationContext.close();
+//
+//
+//    }
 
     private static void lookeUpBeanScopeDemo(AnnotationConfigApplicationContext applicationContext) {
         BeanScopeDemo beanScopeDemo = applicationContext.getBean(BeanScopeDemo.class);

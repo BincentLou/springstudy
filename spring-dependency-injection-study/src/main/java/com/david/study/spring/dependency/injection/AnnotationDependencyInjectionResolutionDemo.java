@@ -1,17 +1,11 @@
 package com.david.study.spring.dependency.injection;
 
-import com.david.study.spring.dependency.configuration.UserConfigurationDemo;
 import com.david.study.spring.domain.User;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import javax.annotation.Resource;
-import java.util.Collection;
 
 /**
  * @version $Id: null.java, v 1.0 2020/5/14 11:20 PM david Exp $$
