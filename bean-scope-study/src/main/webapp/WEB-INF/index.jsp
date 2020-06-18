@@ -8,5 +8,7 @@
     <body>
         \${user.name} : ${user.name}
         \${user.id} : ${user.id}
+        \${user.id} : ${applicationScope['scopedTarget.singletonUser'].id}
+        \${user.name} : ${applicationScope['scopedTarget.singletonUser'].name}
     </body>
 </html>

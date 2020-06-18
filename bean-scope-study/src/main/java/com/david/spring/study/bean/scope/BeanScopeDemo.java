@@ -4,14 +4,12 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
-import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 import java.util.Map;
 
@@ -26,15 +24,17 @@ public class BeanScopeDemo implements DisposableBean {
 
     @Bean
     @Primary
-    @RequestScope
+//    @RequestScope
+//    @SessionScope
+    @ApplicationScope
     public static User singletonUser(){
         return getUser();
     }
-    @Bean
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public static User protoTypeUser(){
-        return getUser();
-    }
+//    @Bean
+//    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+//    public static User protoTypeUser(){
+//        return getUser();
+//    }
 
     private static User getUser() {
         User user = new User();
@@ -53,17 +53,17 @@ public class BeanScopeDemo implements DisposableBean {
     private User singletonUser1;
 
 
-    @Autowired
-    @Qualifier("protoTypeUser")
-    private User protoTypeUser;
-
-    @Autowired
-    @Qualifier("protoTypeUser")
-    private User protoTypeUser1;
-
-    @Autowired
-    @Qualifier("protoTypeUser")
-    private User protoTypeUser2;
+//    @Autowired
+//    @Qualifier("protoTypeUser")
+//    private User protoTypeUser;
+//
+//    @Autowired
+//    @Qualifier("protoTypeUser")
+//    private User protoTypeUser1;
+//
+//    @Autowired
+//    @Qualifier("protoTypeUser")
+//    private User protoTypeUser2;
 
     @Autowired
     private Map<String,User> userMap;
@@ -97,16 +97,16 @@ public class BeanScopeDemo implements DisposableBean {
         BeanScopeDemo beanScopeDemo = applicationContext.getBean(BeanScopeDemo.class);
         System.out.println("inject singletonUser = "+beanScopeDemo.singletonUser);
         System.out.println("inject singletonUser1 = "+beanScopeDemo.singletonUser1);
-        System.out.println("inject protoTypeUser = "+beanScopeDemo.protoTypeUser);
-        System.out.println("inject protoTypeUser1 = "+beanScopeDemo.protoTypeUser1);
-        System.out.println("inject protoTypeUser2 = "+beanScopeDemo.protoTypeUser2);
+//        System.out.println("inject protoTypeUser = "+beanScopeDemo.protoTypeUser);
+//        System.out.println("inject protoTypeUser1 = "+beanScopeDemo.protoTypeUser1);
+//        System.out.println("inject protoTypeUser2 = "+beanScopeDemo.protoTypeUser2);
     }
 
     @Override
     public void destroy() throws Exception {
-        this.protoTypeUser.destory();
-        this.protoTypeUser1.destory();
-        this.protoTypeUser2.destory();
+//        this.protoTypeUser.destory();
+//        this.protoTypeUser1.destory();
+//        this.protoTypeUser2.destory();
         for (Map.Entry<String,User> entry:userMap.entrySet()
              ) {
             BeanDefinition beanDefinition = beanFactory.getBeanDefinition(entry.getKey());
