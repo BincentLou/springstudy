@@ -19,6 +19,7 @@
         <module>spring-dependency-injection-study</module>
         <module>bean-scope-study</module>
         <module>spring-mvc-study</module>
+        <module>bean-lifecycle-study</module>
     </modules>
 
 
