@@ -8,10 +8,10 @@ import com.david.study.spring.domain.User;
 /**
  * @version $Id: null.java, v 1.0 2020/6/19 9:18 AM david Exp $$
  * @Author:louwenbin(louwb@runyong.cn)
- * @Description:${TODO}(这里用一句话描述这个类的作用)
+ * @Description: bean definition 的读取实现，propertiesBeanDefinitionReader
  * @since 1.0
  **/
-public class BeanLifecycleStudyDemo {
+public class PropertiesBeanDefinitionReaderDemo {
 
     public static void main(String[] args) {
 
