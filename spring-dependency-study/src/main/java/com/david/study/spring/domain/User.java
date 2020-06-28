@@ -11,7 +11,7 @@ import javax.annotation.PreDestroy;
  * @Description: pojo
  * @since 1.0
  **/
-public class User  implements BeanNameAware {
+public class User implements BeanNameAware {
 
     private String name;
 

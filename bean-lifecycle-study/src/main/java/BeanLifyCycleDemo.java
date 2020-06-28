@@ -1,4 +1,5 @@
 import com.david.study.spring.domain.SuperUser;
+import com.david.study.spring.domain.User;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 
@@ -13,8 +14,10 @@ public class BeanLifyCycleDemo {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
         beanDefinitionReader.loadBeanDefinitions("META-INF/dependency-lookup-context.xml");
-        beanFactory.addBeanPostProcessor(new BeanInstranitionAwareImpl());
-        SuperUser superUser =  beanFactory.getBean(SuperUser.class);
+        beanFactory.addBeanPostProcessor(new BeanInstantiaitionAwareImpl());
+        User user =  (User)beanFactory.getBean("user");
+        User superUser =  (SuperUser)beanFactory.getBean("superUser");
+        System.out.println(user);
         System.out.println(superUser);
     }
 }
