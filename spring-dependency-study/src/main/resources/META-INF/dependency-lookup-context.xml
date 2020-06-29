@@ -15,4 +15,7 @@
     <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
         <property name="targetBeanName" value="user"></property>
     </bean>
+    <bean id="userHolder" class="com.david.study.spring.domain.UserHolder" parent="user">
+        <property name="descript" value="每个人都想明白"/>
+    </bean>
 </beans>

@@ -1,6 +1,9 @@
 import com.david.study.spring.domain.SuperUser;
 import com.david.study.spring.domain.User;
+import com.david.study.spring.domain.UserHolder;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.MutablePropertyValues;
+import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.util.ObjectUtils;
 
@@ -35,5 +38,22 @@ public class BeanInstantiaitionAwareImpl implements InstantiationAwareBeanPostPr
         }
         //默认返回true，什么也不做，继续下一步 初始化
         return true;
+    }
+
+
+    @Override
+    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
+        if(ObjectUtils.nullSafeEquals(bean.getClass(), UserHolder.class)){
+            UserHolder userHolder = (UserHolder) bean;
+            if(pvs.contains("descript")){
+                MutablePropertyValues mutablePropertyValues = new MutablePropertyValues(pvs);
+                mutablePropertyValues.removePropertyValue("descript");
+                mutablePropertyValues.add("descript","至尊宝没带走我");
+                return mutablePropertyValues;
+            }
+
+        }
+        //默认返回null，什么也不做
+        return null;
     }
 }

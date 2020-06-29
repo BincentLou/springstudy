@@ -1,5 +1,6 @@
 import com.david.study.spring.domain.SuperUser;
 import com.david.study.spring.domain.User;
+import com.david.study.spring.domain.UserHolder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 
@@ -17,7 +18,9 @@ public class BeanLifyCycleDemo {
         beanFactory.addBeanPostProcessor(new BeanInstantiaitionAwareImpl());
         User user =  (User)beanFactory.getBean("user");
         User superUser =  (SuperUser)beanFactory.getBean("superUser");
+        UserHolder userHolder =  (UserHolder)beanFactory.getBean("userHolder");
         System.out.println(user);
         System.out.println(superUser);
+        System.out.println(userHolder);
     }
 }
