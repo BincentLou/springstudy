@@ -18,4 +18,5 @@
     <bean id="userHolder" class="com.david.study.spring.domain.UserHolder" parent="user">
         <property name="descript" value="每个人都想明白"/>
     </bean>
+    <bean class="com.david.study.spring.lifecycle.BeanInitializationDemo"/>
 </beans>

@@ -1,3 +1,5 @@
+package com.david.study.spring.lifecycle;
+
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.PropertiesBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;

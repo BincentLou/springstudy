@@ -1,3 +1,5 @@
+package com.david.study.spring.lifecycle;
+
 import com.david.study.spring.domain.SuperUser;
 import com.david.study.spring.domain.User;
 import com.david.study.spring.domain.UserHolder;
@@ -18,6 +20,7 @@ public class BeanInstantiaitionAwareImpl implements InstantiationAwareBeanPostPr
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
 //        Assert.isNull(beanClass,"beanClass不能为空");
+        System.out.println("实例化之前调用postProcessBeforeInstantiation方法");
         if(ObjectUtils.nullSafeEquals(beanClass, SuperUser.class)){
             SuperUser superUser = new SuperUser();
             superUser.setName("一个船新的版本");
@@ -30,6 +33,7 @@ public class BeanInstantiaitionAwareImpl implements InstantiationAwareBeanPostPr
 
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
+        System.out.println("实例化后调用 postProcessAfterInstantiation方法");
         if(bean.getClass().equals(User.class)){
             User user = (User) bean;
             user.setName("至尊宝");
@@ -45,6 +49,7 @@ public class BeanInstantiaitionAwareImpl implements InstantiationAwareBeanPostPr
     public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
         if(ObjectUtils.nullSafeEquals(bean.getClass(), UserHolder.class)){
             UserHolder userHolder = (UserHolder) bean;
+            System.out.println("populate bean 之前调用postProcessProperties 方法");
             if(pvs.contains("descript")){
                 MutablePropertyValues mutablePropertyValues = new MutablePropertyValues(pvs);
                 mutablePropertyValues.removePropertyValue("descript");

@@ -1,13 +1,12 @@
 package com.david.study.spring.bean;
 
+import com.david.study.spring.domain.User;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.david.study.spring.domain.User;
 import org.springframework.context.annotation.Lazy;
-
-import java.util.Map;
 
 /**
  * @version $Id: null.java, v 1.0 2020/5/5 9:30 PM david Exp $$
@@ -16,7 +15,7 @@ import java.util.Map;
  * @since 1.0
  **/
 @Configuration
-public class BeanInitializationDemo {
+public class BeanInitializationDemo implements InitializingBean {
     public static void main(String[] args) throws InterruptedException {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(BeanInitializationDemo.class);
@@ -44,5 +43,10 @@ public class BeanInitializationDemo {
     @Lazy
     User user(){
         return new User();
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+
     }
 }
