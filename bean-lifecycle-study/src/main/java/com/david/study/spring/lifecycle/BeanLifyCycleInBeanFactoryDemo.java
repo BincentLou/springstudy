@@ -14,10 +14,9 @@ public class BeanLifyCycleInBeanFactoryDemo {
     public static void main(String[] args) {
         DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
         // beanPostProcessor只能手动添加到beanFactory,不像applicationContext可以自己修改beanfactory的BeanPostProcessor
-//        beanFactory.addBeanPostProcessor(new BeanInitializationDemo());
+        beanFactory.addBeanPostProcessor(new BeanInitializationDemo());
         XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
         beanDefinitionReader.loadBeanDefinitions("META-INF/dependency-lookup-context.xml");
-//        beanFactory.addBeanPostProcessor(new BeanInstantiaitionAwareImpl());
         UserHolder userHolder =  (UserHolder)beanFactory.getBean("userHolder");
         System.out.println(userHolder);
     }

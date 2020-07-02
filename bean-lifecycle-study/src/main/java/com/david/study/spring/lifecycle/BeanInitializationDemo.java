@@ -21,4 +21,14 @@ public class BeanInitializationDemo implements BeanPostProcessor {
         }
         return bean;
     }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if(bean instanceof UserHolder){
+            UserHolder userHolder = (UserHolder) bean;
+            System.out.println("初始化后调用 postProcessorAfterInitialiation");
+            userHolder.setDescript("我经历过了postProcessorAfterInitialiation");
+        }
+        return bean;
+    }
 }
