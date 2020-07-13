@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:selfBeans = "http://com.david.study/schema/selfBeans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://com.david.study/schema/selfBeans
+        http://com.david.study/schema/selfBeans/study-selfBeans.xsd">
+
+    <!--<bean id = "user" class="com.david.study.spring.domain.User">-->
+        <!--<property name="age" value="18"></property>-->
+        <!--<property name="name" value="David"></property>-->
+    <!--</bean>-->
+
+    <!--<bean id="superUser" class="com.david.study.spring.domain.SuperUser" parent="user" primary="true">-->
+        <!--<property name="address" value="杭州"></property>-->
+    <!--</bean>-->
+    <!--<bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">-->
+        <!--<property name="targetBeanName" value="user"></property>-->
+    <!--</bean>-->
+    <!--<bean id="userHolder" class="com.david.study.spring.domain.UserHolder" parent="user" init-method="initMethod">-->
+        <!--<property name="descript" value="每个人都想明白"/>-->
+    <!--</bean>-->
+    <!--<bean class="com.david.study.spring.lifecycle.BeanInitializationDemo"/>-->
+    <selfBeans:selfBean id="12343" name="David" city="GUANGZHOU"/>
+    <selfBeans:selfBean id="123434" name="娄文斌" city="HANGZHOU"/>
+</beans>

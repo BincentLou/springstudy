@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<xsd:schema xmlns="http://com.david.study/schema/selfBeans"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://com.david.study/schema/selfBeans">
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+    <!--复杂类型-->
+    <xsd:complexType name="SelfBean">
+        <xsd:attribute name="id" type="xsd:long" use="required"/>
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="age" type="xsd:int"/>
+        <xsd:attribute name="city" type="City"/>
+    </xsd:complexType>
+    <!--简单类型-->
+    <xsd:simpleType name="City">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="HANGZHOU"/>
+            <xsd:enumeration value="GUANGZHOU"/>
+            <xsd:enumeration value="SHENZHEN"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!--元素-->
+    <xsd:element name="selfBean" type="SelfBean" />
+</xsd:schema>
