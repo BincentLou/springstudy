@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
+<!-- 自定义的命名空间 -->
 <xsd:schema xmlns="http://com.david.study/schema/selfBeans"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             targetNamespace="http://com.david.study/schema/selfBeans">
