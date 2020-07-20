@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 要声明自己的shema xmlna = http://com.david.study.spring/schema/beans 并且注意，xmlns 要和 targetNameSpace 成对出现-->
+<xsd:schema xmlns="http://com.david.study.spring/schema/custom"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://com.david.study.spring/schema/custom">
+<!--默认的选项-->
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+    <!--自定义枚举值-->
+    <xsd:simpleType name="Sex">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="MELA"/>
+            <xsd:enumeration value="FEMELA"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+<!--自定义自己的 xsd类型-->
+    <xsd:complexType name="customBean">
+        <xsd:attribute name="id" use="required" type="xsd:long"/>
+        <xsd:attribute name="age" use="required" type="xsd:int"/>
+        <xsd:attribute name="name" use="required" type="xsd:string"/>
+        <xsd:attribute name="class" use="required" type="xsd:string"/>
+        <!--限定 sex只能选取 上面定义的Sex枚举-->
+        <xsd:attribute name="sex" use="required" type="Sex"/>
+    </xsd:complexType>
+
+    <!--自定义自己的element 在"beans"下的第一级标签 指定标注的 元素类型是我们上面自定义的-->
+<xsd:element name="custom" type="customBean" />
+
+</xsd:schema>

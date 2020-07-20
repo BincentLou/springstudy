@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:cus="http://com.david.study.spring/schema/custom"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://com.david.study.spring/schema/custom
+       http://com.david.study.spring/schema/custom/custom.xsd">
+    <cus:custom id="12345" age="22" name="David_lou" class="com.david.study.spring.custom.namespace.Custom" sex="MELA"/>
+</beans>
