@@ -13,15 +13,17 @@ import java.io.Reader;
 /**
  * @version $Id: null.java, v 1.0 2020/7/21 3:45 PM david Exp $$
  * @Author:louwenbin(louwb@runyong.cn)
- * @Description:${TODO}(这里用一句话描述这个类的作用)
+ * @Description:ResourceLoader 测试用例
  * @since 1.0
  **/
 public class ResourceLoaderStudyDemo {
 
     public static void main(String[] args) throws IOException {
-//        DefaultResourceLoader resourceLoader = new DefaultResourceLoader();
-//        defaultResourceLoader(resourceLoader);
-//        classPathResourceLoader(resourceLoader);
+        //DefaultResourceLoader 用例
+        DefaultResourceLoader resourceLoader = new DefaultResourceLoader();
+        defaultResourceLoader(resourceLoader);
+        classPathResourceLoader(resourceLoader);
+        //FileSystemResourceLoader 用例
         FileSystemResourceLoader fileSystemResourceLoader = new FileSystemResourceLoader();
         fileSystemResourceLoader(fileSystemResourceLoader);
     }
