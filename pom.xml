@@ -21,6 +21,8 @@
         <module>spring-mvc-study</module>
         <module>bean-lifecycle-study</module>
         <module>spring-metadata</module>
+        <module>spring-custom-namespace</module>
+        <module>spring-resource</module>
     </modules>
 
 
@@ -51,6 +53,23 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>3.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.david.study</groupId>
+                <artifactId>study-dependencies</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.david.study</groupId>
+                <artifactId>spring-dependency-study</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.david.study</groupId>
+                <artifactId>study-dependencies</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
