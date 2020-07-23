@@ -1,9 +1,13 @@
 package com.david.study.spring.resource;
 
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ResourceLoaderAware;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.EncodedResource;
 
 import javax.annotation.PostConstruct;
@@ -15,7 +19,7 @@ import java.io.IOException;
  * @Description:${TODO}(这里用一句话描述这个类的作用)
  * @since 1.0
  **/
-public class AnnotationResourceInjectDemo {
+public class AnnotationResourceInjectDemo implements ResourceLoaderAware {
 
     @Value("classpath:META-INF/application.yaml")
     public Resource yamResource;
@@ -25,6 +29,14 @@ public class AnnotationResourceInjectDemo {
 
     @Value("${user.dir}")
     private String currentPath;
+
+    private ResourceLoader resourceLoader;
+
+    @Autowired
+    ResourceLoader resourceLoaderInject;
+
+    @Autowired
+    ApplicationContext applicationContext;
 
     @PostConstruct
     public void init() throws IOException {
@@ -38,6 +50,9 @@ public class AnnotationResourceInjectDemo {
         for (Resource resource:resources){
             System.out.println(IOUtils.toString(new EncodedResource(resource).getReader()));
         }
+
+        System.out.println(resourceLoader == resourceLoaderInject);
+        System.out.println(applicationContext == resourceLoaderInject);
     }
 
     public static void main(String[] args) {
@@ -50,5 +65,10 @@ public class AnnotationResourceInjectDemo {
 
 
         applicationContext.close();
+    }
+
+    @Override
+    public void setResourceLoader(ResourceLoader resourceLoader) {
+        this.resourceLoader = resourceLoader;
     }
 }
