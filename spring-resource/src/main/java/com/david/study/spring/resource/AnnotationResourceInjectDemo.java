@@ -17,14 +17,27 @@ import java.io.IOException;
  **/
 public class AnnotationResourceInjectDemo {
 
-
     @Value("classpath:META-INF/application.yaml")
     public Resource yamResource;
+
+    @Value("classpath*:/META-INF/*.properties")
+    public Resource[] resources;
+
+    @Value("${user.dir}")
+    private String currentPath;
 
     @PostConstruct
     public void init() throws IOException {
         EncodedResource encodedResource = new EncodedResource(yamResource,"UTF-8");
+        System.out.println("======================");
         System.out.println(IOUtils.toString(encodedResource.getReader()));
+        System.out.println("======================");
+        System.out.println(currentPath);
+        System.out.println("======================");
+
+        for (Resource resource:resources){
+            System.out.println(IOUtils.toString(new EncodedResource(resource).getReader()));
+        }
     }
 
     public static void main(String[] args) {
@@ -34,6 +47,7 @@ public class AnnotationResourceInjectDemo {
         applicationContext.register(AnnotationResourceInjectDemo.class);
 
         applicationContext.refresh();
+
 
         applicationContext.close();
     }
