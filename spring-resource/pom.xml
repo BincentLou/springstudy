@@ -14,6 +14,7 @@
         <dependency>
             <groupId>com.david.study</groupId>
             <artifactId>study-dependencies</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -30,7 +31,6 @@
         <dependency>
             <groupId>com.david.study</groupId>
             <artifactId>spring-metadata</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
