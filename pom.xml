@@ -24,6 +24,8 @@
         <module>spring-custom-namespace</module>
         <module>spring-resource</module>
         <module>spring-messagesource</module>
+        <module>spring-validation</module>
+        <module>data-binding</module>
     </modules>
 
 
