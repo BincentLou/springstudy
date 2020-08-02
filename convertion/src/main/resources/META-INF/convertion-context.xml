@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd">
+
+
+   <bean class="com.david.study.spring.convertion.User">
+       <property name="name" value="看看"/>
+       <property name="age" value="30"/>
+       <property name="properties">
+           <value>
+               name=娄文斌吧
+               age=30
+           </value>
+       </property>
+       <property name="property" ref="propert"/>
+   </bean>
+
+    <util:properties id="propert">
+        <prop key="name">David</prop>
+        <prop key="id">30</prop>
+    </util:properties>
+
+    <bean class="com.david.study.spring.convertion.CustomizedPropertyEditorRegistar"></bean>
+
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <bean class="com.david.study.spring.convertion.CutomizedProperties2StringConverter"/>
+        </property>
+    </bean>
+</beans>

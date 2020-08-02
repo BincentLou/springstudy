@@ -26,6 +26,7 @@
         <module>spring-messagesource</module>
         <module>spring-validation</module>
         <module>data-binding</module>
+        <module>convertion</module>
     </modules>
 
 
