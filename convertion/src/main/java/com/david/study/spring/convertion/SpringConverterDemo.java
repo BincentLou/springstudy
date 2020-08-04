@@ -32,5 +32,6 @@ public class SpringConverterDemo {
         User user = applicationContext.getBean(User.class);
         System.out.println(user);
         applicationContext.close();
+
     }
 }
