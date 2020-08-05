@@ -27,6 +27,7 @@
         <module>spring-validation</module>
         <module>data-binding</module>
         <module>convertion</module>
+        <module>generic</module>
     </modules>
 
 
