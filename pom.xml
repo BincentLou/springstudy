@@ -28,6 +28,7 @@
         <module>data-binding</module>
         <module>convertion</module>
         <module>generic</module>
+        <module>spring-event</module>
     </modules>
 
 
