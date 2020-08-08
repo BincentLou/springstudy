@@ -29,6 +29,7 @@
         <module>convertion</module>
         <module>generic</module>
         <module>spring-event</module>
+        <module>spring-annotation</module>
     </modules>
 
 
