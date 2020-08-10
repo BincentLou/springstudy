@@ -29,7 +29,7 @@ public class ComponentScanDemo {
          *   7-执行defaultMethod
          *   8-处理超类
          * 8 ComponentScanAnnotationParser#parser()
-         * 9 新建ClasspathBeanDefinitionReader#doScan()
+         * 9 新建ClasspathBeanDefinitionScanner#doScan()
          * 10 ClassPathScanningCandidateComponentProvider#findCandidateComponents(String basePackage) 会委托PathMatchingResourcePatternResolver解决多路径扫描
          * 11 使用ASM (v-5.0才有的) 或者反射 获取BeanDefinition
          * ASM和反射的最大区别就是 ASM直接读取字节码，不用把类加载到虚拟机，节约新能，
