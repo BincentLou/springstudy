@@ -1,9 +1,6 @@
 package com.david.study.spring.lifecycle;
 
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @version $Id: null.java, v 1.0 2020/6/20 11:15 PM david Exp $$
@@ -15,20 +12,21 @@ public class AnnotatedBeanDefinitionReaderDemo {
 
     public static void main(String[] args) {
 
-        DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
-
+//        DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
+//
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
         applicationContext.register(AnnotatedBeanDefinitionReaderDemo.class);
 
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("classpath://META-INF/beans.xml");
+//        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("classpath:/META-INF/beans-context.xml");
 
-        AnnotatedBeanDefinitionReader definitionReader = new AnnotatedBeanDefinitionReader(defaultListableBeanFactory);
-        int beanDefinitionCountBefore = defaultListableBeanFactory.getBeanDefinitionCount();
-        definitionReader.registerBean(AnnotatedBeanDefinitionReaderDemo.class);
-
-        int beanDefinitionCountAfter = defaultListableBeanFactory.getBeanDefinitionCount();
-        System.out.println(beanDefinitionCountBefore);
-        System.out.println(beanDefinitionCountAfter-beanDefinitionCountBefore);
+//        classPathXmlApplicationContext.close();
+//        AnnotatedBeanDefinitionReader definitionReader = new AnnotatedBeanDefinitionReader(defaultListableBeanFactory);
+//        int beanDefinitionCountBefore = defaultListableBeanFactory.getBeanDefinitionCount();
+//        definitionReader.registerBean(AnnotatedBeanDefinitionReaderDemo.class);
+//
+//        int beanDefinitionCountAfter = defaultListableBeanFactory.getBeanDefinitionCount();
+//        System.out.println(beanDefinitionCountBefore);
+//        System.out.println(beanDefinitionCountAfter-beanDefinitionCountBefore);
 
 
     }

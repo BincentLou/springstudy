@@ -21,11 +21,8 @@ public class AnnotationedBeanLifyCycleInBeanFactoryDemo {
     }
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.register(AnnotationedBeanLifyCycleInBeanFactoryDemo.class);
-        applicationContext.refresh();
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AnnotationedBeanLifyCycleInBeanFactoryDemo.class);
 
-        applicationContext.getBean(UserHolder.class);
 
         applicationContext.close();
     }
