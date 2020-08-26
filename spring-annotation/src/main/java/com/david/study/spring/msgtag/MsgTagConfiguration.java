@@ -1,7 +1,5 @@
 package com.david.study.spring.msgtag;
 
-import org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @Description:${TODO}(这里用一句话描述这个类的作用)
  * @since 1.0
  **/
-@ConditionalOnBean(AnnotationAwareAspectJAutoProxyCreator.class)
+//@ConditionalOnBean(AnnotationAwareAspectJAutoProxyCreator.class)
 @Configuration
 public class MsgTagConfiguration {
     @Bean
